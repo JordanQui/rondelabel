@@ -1,0 +1,65 @@
+# === Node / Nuxt standard ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun.lockb
+package-lock.json
+yarn.lock
+.pnpm-store/
+
+# === Nuxt build & cache ===
+.nuxt/
+.output/
+.dist/
+.cache/
+.nitro/
+.server/
+.temp/
+build/
+coverage/
+
+# === Vite & related ===
+vite.config.ts.timestamp*
+vite.config.js.timestamp*
+*.tsbuildinfo
+
+# === Logs & local env ===
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+.DS_Store
+Thumbs.db
+
+# === Environment variables ===
+.env
+.env.*
+!.env.example
+
+# === Editor / OS ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
+# === Testing ===
+coverage/
+jest-cache/
+jest-output/
+cypress/videos/
+cypress/screenshots/
+playwright-report/
+
+# === Static assets build output ===
+public/build/
+public/dist/
+
+# === Misc ===
+*.local
+*.orig
