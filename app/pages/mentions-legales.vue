@@ -9,7 +9,7 @@
         <strong>Jordan Quiqueret</strong> (nom civil),<br />
         agissant sous le nom d’artiste <strong>Jordan Olivier</strong>.<br />
         Courriel de contact :
-        <a href="mailto:contact@jordanolivier.com">jordanxyolivier@gmail.com</a>
+        <a href="mailto:jordanxyolivier@gmail.com">jordanxyolivier@gmail.com</a>
       </p>
 
       <h2>Hébergement</h2>
@@ -22,8 +22,8 @@
 
       <h2>Propriété intellectuelle</h2>
       <p>
-        Tous les contenus présents sur ce site (textes, musiques, images, vidéos, code, etc.) sont protégés par le
-        droit d’auteur.<br />
+        Tous les contenus présents sur ce site (textes, musiques, images, vidéos, code, etc.)
+        sont protégés par le droit d’auteur.<br />
         © 2025 <strong>Jordan Olivier</strong> — Tous droits réservés.<br />
         Diffusion sous licence
         <a
@@ -34,7 +34,10 @@
           Creative Commons BY-NC-ND 4.0 International
         </a>
         .<br />
-        Toute utilisation commerciale ou modification est interdite sans autorisation écrite.
+        Toute utilisation commerciale ou modification est interdite sans autorisation écrite.<br /><br />
+        🎧 <strong>Usage DJ autorisé :</strong> L’auteur autorise la diffusion et le mixage non commercial de ses œuvres
+        dans le cadre de performances DJ, radios ou podcasts, sous réserve d’attribution claire de l’auteur et sans
+        altération substantielle de l’œuvre originale.
       </p>
 
       <h2>Responsabilité</h2>
