@@ -206,6 +206,7 @@ let suppressNextTapToPlay = false
 let isScrollCompleteListenerAttached = false
 let canvasResizeObserver: ResizeObserver | null = null
 let lastCanvasSize: { width: number; height: number } | null = null
+const screenWidthFrequencyFactor = ref(1)
 
 const pointerState = {
   isPointerDown: false,
@@ -1125,6 +1126,7 @@ function fitCanvas() {
   if (!el) return
   const dpr = Math.min(window.devicePixelRatio || 1, 2)
   const rect = el.getBoundingClientRect()
+  updateScreenWidthFrequencyFactor(rect.width)
   const width = Math.max(1, Math.floor(rect.width * dpr))
   const height = Math.max(1, Math.floor(rect.height * dpr))
 
@@ -1141,6 +1143,18 @@ function fitCanvas() {
       hydra.setResolution(width, height)
     } catch {}
   }
+}
+
+function updateScreenWidthFrequencyFactor(layoutWidth: number) {
+  if (!Number.isFinite(layoutWidth)) {
+    return
+  }
+
+  const baseWidth = 1280
+  const normalizedWidth = Math.max(320, layoutWidth)
+  const ratio = normalizedWidth / baseWidth
+  const clampedRatio = Math.min(2.2, Math.max(0.8, ratio))
+  screenWidthFrequencyFactor.value = clampedRatio
 }
 
 function handleWindowResize() {
@@ -1189,7 +1203,7 @@ async function initHydra() {
 
   const shimmerTones = () =>
     osc(
-      () => 0.1 + hydraAudioBands.low * 1.4,
+      () => (0.1 + hydraAudioBands.low * 1.4) * screenWidthFrequencyFactor.value,
       () => 0.006 + hydraAudioBands.highMid * 0.04,
       () => 0.22 + hydraAudioBands.high * 0.45,
     )
@@ -1201,9 +1215,12 @@ async function initHydra() {
       .rotate(() => hydraAudioBands.lowMid * 0.45)
       .brightness(() => -0.08 + hydraAudioBands.high * 0.18)
 
+  const lowFrequencyBase = hydraBand('low', 0.1, 1)
+  const highMidFrequencyBase = hydraBand('highMid', 1, 1000)
+
   const auroraWash = () =>
     osc(
-      () => hydraBand('low', 0.1, 1) + hydraBand('highMid',1,1000) + 1,
+      () => (lowFrequencyBase() + highMidFrequencyBase() + 1) * screenWidthFrequencyFactor.value,
       0,
       () => 0.12 + hydraAudioBands.highMid * 0.4,
     )
