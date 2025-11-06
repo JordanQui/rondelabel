@@ -48,20 +48,21 @@ const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 const wrap = (value: number, max: number) => ((value % max) + max) % max;
 
-const normalizeAxis = (value: number, min: number, max: number) => {
+const normalizeAxisToUnit = (value: number, min: number, max: number) => {
   const clamped = clamp(value, min, max);
-  return Math.round(((clamped - min) / (max - min)) * 255);
+  return (clamped - min) / (max - min);
 };
 
 const colorChannels = computed(() => {
-  const y = wrap(orientation.alpha ?? 0, 360);
-  const x = orientation.beta ?? 0;
-  const z = orientation.gamma ?? 0;
+  const x = normalizeAxisToUnit(orientation.beta ?? 0, -90, 90);
+  const y = normalizeAxisToUnit(orientation.gamma ?? 0, -90, 90);
+  const wrappedAlpha = wrap(orientation.alpha ?? 0, 360);
+  const z = normalizeAxisToUnit(wrappedAlpha, 0, 360);
 
   return {
-    r: normalizeAxis(y, -180, 180),
-    g: normalizeAxis(x, -90, 90),
-    b: Math.round((z / 360) * 255),
+    r: Math.round(x * 255),
+    g: Math.round(y * 255),
+    b: Math.round(z * 255),
   };
 });
 
