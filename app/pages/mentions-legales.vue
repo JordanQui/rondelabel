@@ -14,10 +14,10 @@
 
       <h2>Hébergement</h2>
       <p>
-        Hébergeur : <strong>OVH SAS</strong><br />
-        2 rue Kellermann — 59100 Roubaix — France<br />
-        Site :
-        <a href="https://www.ovh.com" rel="noopener noreferrer" target="_blank">www.ovh.com</a>
+        Hébergeur : <strong>Vercel Inc.</strong><br />
+        Adresse : 340 S Lemon Ave #4133, Walnut, CA 91789, USA<br />
+        Site : 
+        <a href="https://vercel.com" rel="noopener noreferrer" target="_blank">vercel.com</a>
       </p>
 
       <h2>Propriété intellectuelle</h2>
