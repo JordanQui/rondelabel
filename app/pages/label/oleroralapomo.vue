@@ -1177,6 +1177,11 @@ async function initHydra() {
   const hydraBand = (band: keyof typeof hydraAudioBands, base: number, scale: number) =>
     () => base + hydraAudioBands[band] * scale
 
+  const hydraBandSum = (
+    ...getters: Array<ReturnType<typeof hydraBand>>
+  ): (() => number) =>
+    () => getters.reduce((sum, getter) => sum + getter(), 0)
+
   const shimmerTones = () =>
     osc(
       () => 0.1 + hydraAudioBands.low * 1.4,
@@ -1233,9 +1238,18 @@ async function initHydra() {
     // )
     .contrast(() => 1.12 + hydraAudioBands.highMid * 0.8)
     .saturate(() => 1 + hydraAudioBands.high * 0.55)
-    .modulate(o0, () => hydraBand('low',0,24) + hydraBand('highMid',0,240)) 
-    .modulate(o0, () => hydraBand('low',0,24) + hydraBand('highMid',0,240)) 
-    .modulate(o0, () => hydraBand('low',0,24) + hydraBand('highMid',0,240)) 
+    .modulate(
+      o0,
+      hydraBandSum(hydraBand('low', 0, 24), hydraBand('highMid', 0, 240)),
+    )
+    .modulate(
+      o0,
+      hydraBandSum(hydraBand('low', 0, 24), hydraBand('highMid', 0, 240)),
+    )
+    .modulate(
+      o0,
+      hydraBandSum(hydraBand('low', 0, 24), hydraBand('highMid', 0, 240)),
+    )
     .out(o0)
 }
 
