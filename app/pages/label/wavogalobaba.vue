@@ -123,20 +123,10 @@ declare const o0: any
 const canvasId = 'label-hydra-canvas'
 
 const tracks = [
-  // { src: '/tracks/wavogalobaba/Calofratopamo.mp3', title: 'Calofratopamo' },
-  // { src: '/tracks/wavogalobaba/Cofagolomobo.mp3', title: 'Cofagolomobo' },
-  { src: '/tracks/wavogalobaba/Feralolapopa.mp3', title: 'Feralolapopa' },
-  // { src: '/tracks/wavogalobaba/Hofarolopaba.mp3', title: 'Hofarolopaba' },
-  // { src: '/tracks/wavogalobaba/Holartagapomo.mp3', title: 'Holartagapomo' },
-  { src: '/tracks/wavogalobaba/Jolararapoba.mp3', title: 'Jolararapoba' },
-  { src: '/tracks/wavogalobaba/Kolataropomo.mp3', title: 'Kolataropomo' },
-  // { src: '/tracks/wavogalobaba/Norotagapoma.mp3', title: 'Norotagapoma' },
-  // { src: '/tracks/wavogalobaba/Norotalopamo.mp3', title: 'Norotalopamo' },
-  { src: '/tracks/wavogalobaba/Noutralapomo.mp3', title: 'Noutralapomo' },
-  { src: '/tracks/wavogalobaba/Solartolabomo.mp3', title: 'Solartolabomo' },
-  // { src: '/tracks/wavogalobaba/Waratalapopa.mp3', title: 'Waratalapopa' },
-  // { src: '/tracks/wavogalobaba/Wavogalobaba.mp3', title: 'Wavogalobaba' },
-  // { src: '/tracks/wavogalobaba/Xoloragamoba.mp3', title: 'Xoloragamoba' },
+  { src: '/tracks/Oleroralapomo/Noratolopomu.mp3', title: 'Noratolopomu' },
+  { src: '/tracks/Oleroralapomo/Oleroralapomo.mp3', title: 'Oleroralapomo' },
+  { src: '/tracks/Oleroralapomo/Ralotorapomi.mp3', title: 'Ralotorapomi' },
+  { src: '/tracks/Oleroralapomo/Relatarapobo.mp3', title: 'Relatarapobo' },
 ]
 
 const HEAD_PRELOAD_COUNT = 1
