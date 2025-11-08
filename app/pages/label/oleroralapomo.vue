@@ -862,14 +862,39 @@ async function tryPlayUntilSuccess(el: HTMLAudioElement, requestId: number, atte
   await tryPlayUntilSuccess(el, requestId, attempt + 1)
 }
 
-async function playTrack(index: number) {
+async function playTrack(index: number, options: { userInitiated?: boolean } = {}) {
   const el = audioRefs.value[index]
   if (!el) return
   const requestId = ++playRequestId
-  logSliderEvent('playTrack', { index, requestId })
+  const userInitiated = options.userInitiated === true
+  logSliderEvent('playTrack', { index, requestId, userInitiated })
   requestPreload(index)
-  await ensurePlaybackReady(index)
+  const ensurePromise = ensurePlaybackReady(index)
+
+  let immediatePlaySuccess = false
+
+  if (userInitiated) {
+    try {
+      const playResult = el.play()
+      if (playResult && typeof playResult.then === 'function') {
+        await playResult
+      }
+      immediatePlaySuccess = !el.paused
+      if (immediatePlaySuccess) {
+        logSliderEvent('immediatePlaySuccess', { index, requestId })
+      }
+    } catch (error: unknown) {
+      logSliderEvent('immediatePlayError', { index, requestId, error })
+    }
+  }
+
+  await ensurePromise
   if (requestId !== playRequestId) return
+
+  if (userInitiated && immediatePlaySuccess && !el.paused) {
+    return
+  }
+
   await tryPlayUntilSuccess(el, requestId)
 }
 
@@ -897,7 +922,7 @@ async function handlePlayButtonClick(index: number) {
   }
   void goToSlide(index, { animate: true })
   pauseAllExcept(index)
-  await playTrack(index)
+  await playTrack(index, { userInitiated: true })
 }
 
 function setAudioRef(el: HTMLAudioElement | null, index: number) {
