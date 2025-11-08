@@ -20,7 +20,7 @@ interface AlbumsOnGrid {
 const albums: AlbumsOnGrid[] = [
   {
     title: 'wavogalobaba',
-    page: '/label/wavogalobaba',
+    page: '/label/oleroralapomo',
   },
   // {
   //   title: 'Lonafarabomo',
