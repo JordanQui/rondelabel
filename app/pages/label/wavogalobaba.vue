@@ -134,7 +134,7 @@ const tracks = [
   // { src: '/tracks/wavogalobaba/Norotalopamo.mp3', title: 'Norotalopamo' },
   { src: '/tracks/wavogalobaba/Noutralapomo.mp3', title: 'Noutralapomo' },
   { src: '/tracks/wavogalobaba/Solartolabomo.mp3', title: 'Solartolabomo' },
-  { src: '/tracks/wavogalobaba/Waratalapopa.mp3', title: 'Waratalapopa' },
+  // { src: '/tracks/wavogalobaba/Waratalapopa.mp3', title: 'Waratalapopa' },
   // { src: '/tracks/wavogalobaba/Wavogalobaba.mp3', title: 'Wavogalobaba' },
   // { src: '/tracks/wavogalobaba/Xoloragamoba.mp3', title: 'Xoloragamoba' },
 ]
