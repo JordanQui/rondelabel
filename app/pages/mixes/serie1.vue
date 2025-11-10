@@ -26,9 +26,9 @@
     </div>
 
     <!-- Lecteurs audio -->
-    <div class="slider-pagination-overlay" role="status" aria-live="polite">
+    <!-- <div class="slider-pagination-overlay" role="status" aria-live="polite">
       {{ activeSlidePagination }}
-    </div>
+    </div> -->
     <div
       ref="sliderContainerRef"
       :class="['slider-container mixes', { 'is-dragging': isSliderDragging }]"
@@ -140,18 +140,18 @@ const canvasId = 'label-hydra-canvas'
 // ]
 
 const tracks = [
-  { src: '/tracks/mixes/MIX142.mp3', title: `
+  { src: '/tracks/mixes/JO_mix_10112025_1.mp3', title: `
   ═══════════`
   },
-  { src: '/tracks/mixes/MIX127.mp3', title: `
-  ╱╱╱╱╱╱╱╱╱╱`
-  },
-  { src: '/tracks/mixes/MIX101.mp3', title: `
-  ∿∿∿∿∿∿∿∿∿∿∿∿` 
-  },
-  { src: '/tracks/mixes/MIX80.mp3', title: `
-  ││││││││││`
-  },
+  // { src: '/tracks/mixes/MIX127.mp3', title: `
+  // ╱╱╱╱╱╱╱╱╱╱`
+  // },
+  // { src: '/tracks/mixes/MIX101.mp3', title: `
+  // ∿∿∿∿∿∿∿∿∿∿∿∿` 
+  // },
+  // { src: '/tracks/mixes/MIX80.mp3', title: `
+  // ││││││││││`
+  // },
 ]
 
 const HEAD_PRELOAD_COUNT = 1
@@ -1243,7 +1243,7 @@ async function initHydra() {
     hydra.setSmooth(0.995)
   }
 
-  osc(hydraBand('lowMid',1,15),0,() => hydraOscOffset.value * 2.4 + 1)
+  osc(hydraBand('lowMid',1,15),0,() => hydraOscOffset.value + 2)
     .modulateRotate(o0, () => hydraBand('low',0,1))
     .modulateRotate(o0, () => hydraBand('lowMid',0,1) + 1)
     .modulateRotate(o0, () => hydraBand('high',0,1))
