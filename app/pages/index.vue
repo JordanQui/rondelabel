@@ -16,9 +16,9 @@
       <a href="/mixes" rel="noopener noreferrer">
         mixes
       </a>
-      <a href="https://www.instagram.com/jordanxyolivier" target="_blank" rel="noopener noreferrer">
+      <!-- <a href="https://www.instagram.com/jordanxyolivier" target="_blank" rel="noopener noreferrer">
         @jordanxyolivier
-      </a>
+      </a> -->
       <a href="https://www.instagram.com/ronde_label" target="_blank" rel="noopener noreferrer">
         @ronde_label
       </a>
