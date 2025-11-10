@@ -10,17 +10,17 @@
     </div>
     <canvas :id="canvasId" width="640" height="480"></canvas>
     <div class="link-frame">
-      <a href="https://www.instagram.com/jordanxyolivier" target="_blank" rel="noopener noreferrer">
-        @jordanxyolivier
-      </a>
-      <a href="https://www.instagram.com/ronde_label" target="_blank" rel="noopener noreferrer">
-        @ronde_label
-      </a>
       <a href="/label" rel="noopener noreferrer">
         label
       </a>
       <a href="/mixes" rel="noopener noreferrer">
         mixes
+      </a>
+      <a href="https://www.instagram.com/jordanxyolivier" target="_blank" rel="noopener noreferrer">
+        @jordanxyolivier
+      </a>
+      <a href="https://www.instagram.com/ronde_label" target="_blank" rel="noopener noreferrer">
+        @ronde_label
       </a>
       <!-- <a href="https://ronde.bandcamp.com" target="_blank" rel="noopener noreferrer">
         @bandcamp
