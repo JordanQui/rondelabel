@@ -4,7 +4,7 @@
       <li v-for="patch in albums" :key="patch.title" class="label-links__item">
         <span class="label-links__name">{{ patch.title }}</span>
         <div class="label-links__destinations">
-          <NuxtLink :to="patch.page" class="label-links__link">listen mixes</NuxtLink>
+          <NuxtLink :to="patch.page" class="label-links__link">listen mix</NuxtLink>
         </div>
       </li>
     </ul>
