@@ -17,14 +17,14 @@
         @ronde_label
       </a>
       <a href="/label" rel="noopener noreferrer">
-        @label
+        label
       </a>
       <a href="/mixes" rel="noopener noreferrer">
-        @mixes
+        mixes
       </a>
-      <a href="https://ronde.bandcamp.com" target="_blank" rel="noopener noreferrer">
+      <!-- <a href="https://ronde.bandcamp.com" target="_blank" rel="noopener noreferrer">
         @bandcamp
-      </a>
+      </a> -->
     </div>
     <a class="legal-link" href="/mentions-legales">Mentions légales</a>
   </main>
