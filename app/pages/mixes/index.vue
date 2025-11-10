@@ -19,8 +19,8 @@ interface AlbumsOnGrid {
 
 const albums: AlbumsOnGrid[] = [
   {
-    title: 'serie1',
-    page: '/mixes/serie1',
+    title: 'mix novembre 2025',
+    page: '/mixes/mix1',
   },
 ]
 </script>
