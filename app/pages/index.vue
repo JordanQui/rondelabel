@@ -19,6 +19,9 @@
       <a href="/label" rel="noopener noreferrer">
         @label
       </a>
+      <a href="/mixes" rel="noopener noreferrer">
+        @mixes
+      </a>
       <a href="https://ronde.bandcamp.com" target="_blank" rel="noopener noreferrer">
         @bandcamp
       </a>
