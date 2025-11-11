@@ -214,8 +214,28 @@ let playRequestId = 0
 let hydra: any | null = null
 const HYDRA_OSC_BASE_OFFSET = 4
 const HYDRA_OSC_TRANSITION_DURATION = 1
+const HYDRA_OSC_ANIMATION_VALUES = [
+  1.2,
+  2.4,
+  0.8,
+  1.7,
+  2.9,
+  1.1,
+  2.2,
+  0.9,
+  1.5,
+  2.7,
+  1.3,
+  2.1,
+]
+const HYDRA_OSC_ANIMATION_INTERVAL_MS = 5 * 60 * 1000
 const hydraOscOffset = { value: HYDRA_OSC_BASE_OFFSET + activeSlideIndex.value }
+const hydraOscAnimation = {
+  index: 0,
+  value: HYDRA_OSC_ANIMATION_VALUES[0] ?? 2,
+}
 let hydraOscOffsetTween: gsap.core.Tween | null = null
+let hydraOscAnimationIntervalId: number | null = null
 let rafId: number | null = null
 let lastFrameTime = 0
 let tapToPlayTimeoutId: number | null = null
@@ -1171,6 +1191,35 @@ function handleHydraOscSlideChange(previousIndex: number, nextIndex: number) {
   animateHydraOscOffset(target)
 }
 
+function advanceHydraOscAnimationValue() {
+  if (!HYDRA_OSC_ANIMATION_VALUES.length) {
+    hydraOscAnimation.value = 2
+    return
+  }
+
+  hydraOscAnimation.index = (hydraOscAnimation.index + 1) % HYDRA_OSC_ANIMATION_VALUES.length
+  hydraOscAnimation.value = HYDRA_OSC_ANIMATION_VALUES[hydraOscAnimation.index]
+}
+
+function startHydraOscAnimationCycle() {
+  if (typeof window === 'undefined') return
+
+  stopHydraOscAnimationCycle()
+  hydraOscAnimation.value = HYDRA_OSC_ANIMATION_VALUES[hydraOscAnimation.index] ?? 2
+  hydraOscAnimationIntervalId = window.setInterval(() => {
+    advanceHydraOscAnimationValue()
+  }, HYDRA_OSC_ANIMATION_INTERVAL_MS)
+}
+
+function stopHydraOscAnimationCycle() {
+  if (typeof window === 'undefined') return
+
+  if (hydraOscAnimationIntervalId !== null) {
+    window.clearInterval(hydraOscAnimationIntervalId)
+    hydraOscAnimationIntervalId = null
+  }
+}
+
 function fitCanvas() {
   const el = canvasRef.value
   if (!el) return
@@ -1243,7 +1292,7 @@ async function initHydra() {
     hydra.setSmooth(0.995)
   }
 
-  osc(hydraBand('lowMid',1,15),0,() => hydraOscOffset.value + 2)
+  osc(hydraBand('lowMid',1,15),0,() => hydraOscOffset.value + hydraOscAnimation.value)
     .modulateRotate(o0, () => hydraBand('low',0,1))
     .modulateRotate(o0, () => hydraBand('lowMid',0,1) + 1)
     .modulateRotate(o0, () => hydraBand('high',0,1))
@@ -1281,6 +1330,7 @@ onMounted(() => {
     scheduleHydraInit()
     window.addEventListener('resize', handleWindowResize)
     startHydraAudioLoop()
+    startHydraOscAnimationCycle()
     requestPreloadAround(activeSlideIndex.value)
     void nextTick(() => {
       const container = sliderContainerRef.value
@@ -1335,6 +1385,7 @@ onBeforeUnmount(() => {
   pointerState.velocityX = 0
 
   stopHydraAudioLoop()
+  stopHydraOscAnimationCycle()
 
   audioRefs.value.forEach((audio) => {
     if (!audio) return
