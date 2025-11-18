@@ -123,10 +123,10 @@ declare const o0: any
 const canvasId = 'label-hydra-canvas'
 
 const tracks = [
-  { src: '/tracks/oleroralapomo/Noratolopomu.mp3', title: 'Noratolopomu' },
-  { src: '/tracks/oleroralapomo/Oleroralapomo.mp3', title: 'Oleroralapomo' },
-  { src: '/tracks/oleroralapomo/Ralotorapomi.mp3', title: 'Ralotorapomi' },
-  { src: '/tracks/oleroralapomo/Relatarapobo.mp3', title: 'Relatarapobo' },
+  { src: '/tracks/oleroralapomo/noratolopomu.mp3', title: 'Noratolopomu' },
+  { src: '/tracks/oleroralapomo/oleroralapomo.mp3', title: 'Oleroralapomo' },
+  { src: '/tracks/oleroralapomo/ralotorapomi.mp3', title: 'Ralotorapomi' },
+  { src: '/tracks/oleroralapomo/relatarapobo.mp3', title: 'Relatarapobo' },
 ]
 
 const HEAD_PRELOAD_COUNT = 1
