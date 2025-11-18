@@ -215,17 +215,17 @@ let hydra: any | null = null
 const HYDRA_OSC_BASE_OFFSET = 4
 const HYDRA_OSC_TRANSITION_DURATION = 1
 const HYDRA_OSC_ANIMATION_VALUES = [
-  1.2,
+  2.2,
   2.4,
-  0.8,
-  1.7,
+  3.8,
+  6.7,
   2.9,
   1.1,
   2.2,
-  0.9,
+  8.9,
   1.5,
   2.7,
-  1.3,
+  7.3,
   2.1,
 ]
 const HYDRA_OSC_ANIMATION_INTERVAL_MS = 5 * 60 * 1000
