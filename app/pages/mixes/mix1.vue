@@ -140,7 +140,7 @@ const canvasId = 'label-hydra-canvas'
 // ]
 
 const tracks = [
-  { src: '/tracks/mixes/JO_mix_10112025_1.mp3', title: `
+  { src: '/tracks/mixes/jo_mix_10112025_1.mp3', title: `
   ═══════════`
   },
   // { src: '/tracks/mixes/MIX127.mp3', title: `
