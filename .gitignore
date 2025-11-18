@@ -63,3 +63,4 @@ public/dist/
 # === Misc ===
 *.local
 *.orig
+.vercel
